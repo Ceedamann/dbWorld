@@ -7,12 +7,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/lumen/bootstrap.min.css">
-  <link href="stylesheets/style.css" rel="stylesheet">
   <!-- Bootstrap core CSS -->
 <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
 <!-- Material Design Bootstrap -->
 <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.10/css/mdb.min.css" rel="stylesheet">
-<link rel="stylesheet" href="/dbWorld/public/assets/css/style.css">
+ <link href="assets/css/style.css" rel="stylesheet">
 </head>
 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner">
@@ -23,7 +22,6 @@
   </div>
   
 </div>
-</head>
 
 <body>
   <nav class="navbar navbar-default">
@@ -42,9 +40,22 @@
       </div>
     </div>
   </div>
+  <div class="container">
+    <div class="row">
+      <form>
+        <div class="form-group">
+          <label for="searchGame">Search for Games</label>
+          <input type="text" class="form-control" id="searchGame" placeholder="Call of Duty">
+        </div>
+        <button class="btn btn-danger">Search</button>
+      </form>
+    </div>
+    <div class="container" id="gamesSearched"></div>
+  </div>
+
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script type="text/javascript" src="js/members.js"></script>
+  <script type="text/javascript" src="assets/js/members.js"></script>
 
 </body>
 
