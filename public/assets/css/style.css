@@ -2,6 +2,8 @@ body {
     text-align: center;
     background-image: url("../img/round.png");
 }
-a {
-    text-align: center;
+.container1 {
+    
+ text-align: center;
+ display: inline-block;
 }
