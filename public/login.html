@@ -6,65 +6,40 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/lumen/bootstrap.min.css">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
-  <!-- Bootstrap core CSS -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Material Design Bootstrap -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.10/css/mdb.min.css" rel="stylesheet">
   <link href="assets/css/style.css" rel="stylesheet">
 </head>
-<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img class="d-block w-100" style="height: 540px" src="../public/assets/img/vgcollage.jpg"
-        alt="First slide">
 
+<body>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+      </div>
     </div>
-
+  </nav>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <h2>Login Form</h2>
+        <form class="login">
+          <div class="form-group">
+            <label for="exampleInputEmail1">Email address</label>
+            <input type="email" class="form-control" id="email-input" placeholder="Email">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Password</label>
+            <input type="password" class="form-control" id="password-input" placeholder="Password">
+          </div>
+          <button type="submit" class="btn btn-default">Login</button>
+        </form>
+        <br />
+        <p>Or sign up <a href="/">here</a></p>
+      </div>
+    </div>
   </div>
-
-  <body>
-    <nav class="navbar navbar-default">
-      <div class="container-fluid">
-        <div class="navbar-header">
-        </div>
-      </div>
-    </nav>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6 col-md-offset-3">
-          <h2>Login Form</h2>
-          <form class="login">
-            <div class="form-group">
-              <label for="exampleInputEmail1">Email address</label>
-              <input type="email" class="form-control" id="email-input" placeholder="Email">
-            </div>
-            <div class="form-group">
-              <label for="exampleInputPassword1">Password</label>
-              <input type="password" class="form-control" id="password-input" placeholder="Password">
-            </div>
-            <button type="submit" class="btn btn-default">Login</button>
-          </form>
-          <br />
-          <p>Or sign up <a href="/">here</a></p>
-        </div>
-      </div>
-    </div>
-    <!-- Footer -->
-    <footer class="page-footer font-small blue fixed-bottom">
-
-      <!-- Copyright -->
-      <div class="footer-copyright text-center py-3">© 2019 Copyright:
-        <a href="https://github.com/Ceedamann/dbWorld"> Our Git Repository</a>
-      </div>
-      <!-- Copyright -->
-
-    </footer>
-
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script type="text/javascript" src="assets/js/login.js"></script>
 
-  </body>
+</body>
 
 </html>
