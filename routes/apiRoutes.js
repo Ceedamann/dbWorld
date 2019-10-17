@@ -50,7 +50,6 @@ module.exports = function (app) {
   });
 
   app.post("/api/games", function (req, res) {
-    // console.log(req.body);
 
 
     db.Game.findAll({
