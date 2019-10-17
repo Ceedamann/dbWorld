@@ -53,7 +53,7 @@ module.exports = function (app) {
 
 
     db.Game.findAll({
-      limit: 5,
+      limit: 10,
       where: {
         name: {
           [Op.like]: '%' + req.body.name + '%'
