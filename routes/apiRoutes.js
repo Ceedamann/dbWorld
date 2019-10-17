@@ -65,4 +65,19 @@ module.exports = function (app) {
       console.log(error);
     });
   });
+  app.post("/api/owneds", function (req, res) {
+        console.log(req.body);
+        
+
+    db.Owned.create({
+      game: req.body.game,
+      platform: req.body.platform,
+      UserId: req.user.id,
+      GameId: req.body.GameId
+    }).then(function (data) {
+      return res.json(data);
+    }).catch(function (error) {
+      console.log(error);
+    });
+  });
 };
