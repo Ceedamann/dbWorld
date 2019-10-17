@@ -15,6 +15,11 @@ module.exports = function(sequelize, DataTypes) {
         allowNull: false
       }
     });
+    Owned.belongsTo(models.Game, {
+      foreignKey: {
+        allowNull: false
+      }
+    });
   };
   return Owned;
 };
