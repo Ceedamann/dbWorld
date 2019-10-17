@@ -20,8 +20,14 @@ $(document).ready(function() {
     }).then(function(data){
 
     console.log(data);
-    var p = $("<p>").text(data[0].name)
+    for (let i = 0; i < data.length; i++) {
+      var p = $("<p>").text(data[i].name) 
+      b = $("<button>").attr("class", "btn btn-primary").text("add").attr("data-id",data[i].id)
+      p.append(b)
     $("#gamesSearched").append(p)
+      
+    }
+    
     })
     
   })
