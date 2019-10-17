@@ -50,11 +50,10 @@ module.exports = function (app) {
   });
 
   app.post("/api/games", function (req, res) {
-    // console.log(req.body);
 
 
     db.Game.findAll({
-      limit: 10,
+      limit: 5,
       where: {
         name: {
           [Op.like]: '%' + req.body.name + '%'
