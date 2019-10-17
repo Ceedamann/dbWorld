@@ -46,4 +46,25 @@ module.exports = function (app) {
       });
     }
   });
+
+  app.post("/api/games", function (req, res) {
+    // console.log(req.body);
+
+
+    db.Game.findAll({
+        limit: 10,
+        where: {
+          name: {
+            $like: '%' + req.body.name + '%'
+          }
+        }
+      }).then(function (assets) {
+        return response.json({
+          msg: 'search results',
+          assets: assets
+        });
+      }).catch(function (error) {
+        console.log(error);
+      });
+  });
 };
