@@ -1,3 +1,7 @@
 body {
     text-align: center;
+    background-image: url("../img/round.png");
+}
+a {
+    text-align: center;
 }
