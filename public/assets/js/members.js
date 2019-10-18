@@ -85,7 +85,7 @@ $(document).ready(function () {
 
       console.log(data);
       for (let i = 0; i < data.length; i++) {
-        var p = $("<p>").attr("class", "searchedGamesTrade").text(data[i].game + " " + data[i].User.name + " " + data[i].User.email).attr("data-id", data[i].id)
+        var p = $("<p>").attr("class", "searchedGamesTrade").text(data[i].game + " Platform: " + data[i].platform + " Name: " + data[i].User.name + " Contact: " + data[i].User.email).attr("data-id", data[i].id)
         $("#gamesSearchedTrade").append(p)
 
       }
