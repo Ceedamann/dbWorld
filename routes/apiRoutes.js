@@ -17,6 +17,7 @@ module.exports = function (app) {
   // otherwise send back an error
   app.post("/api/signup", function (req, res) {
     db.User.create({
+      name: req.body.name,
       email: req.body.email,
       password: req.body.password
     })
@@ -43,6 +44,7 @@ module.exports = function (app) {
       // Otherwise send back the user's email and id
       // Sending back a password, even a hashed password, isn't a good idea
       res.json({
+        name: req.user.name,
         email: req.user.email,
         id: req.user.id
       });
@@ -65,6 +67,7 @@ module.exports = function (app) {
       console.log(error);
     });
   });
+
   app.post("/api/owneds", function (req, res) {
         console.log(req.body);
         
@@ -75,6 +78,26 @@ module.exports = function (app) {
       UserId: req.user.id,
       GameId: req.body.GameId
     }).then(function (data) {
+      return res.json(data);
+    }).catch(function (error) {
+      console.log(error);
+    });
+  });
+
+  app.post("/api/trades", function (req, res) {
+        console.log(req.body);
+        
+
+    db.Owned.findAll({
+        where: {
+          game: {
+            [Op.like]: '%' + req.body.game + '%'
+          }
+        },
+        include: [db.User]
+    }).then(function (data) {
+      console.log(data);
+      
       return res.json(data);
     }).catch(function (error) {
       console.log(error);

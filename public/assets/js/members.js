@@ -4,11 +4,12 @@ $(document).ready(function () {
   // This file just does a GET request to figure out which user is logged in
   // and updates the HTML on the page
   $.get("/api/user_data").then(function (data) {
-    $(".member-name").text(data.email);
+    $(".member-name").text(data.name);
   });
 
   $("#searchGameBtn").on("click", function (event) {
     event.preventDefault();
+    $('#gamesSearched').empty();
     var dataObject = {
       name: $("#searchGame").val()
     }
@@ -22,9 +23,11 @@ $(document).ready(function () {
 
       console.log(data);
       for (let i = 0; i < data.length; i++) {
-        var p = $("<p>").attr("class", "searchedGames").text(data[i].name).attr("data-id", data[i].id).attr("data-platform", data[i].platform)
+        var div = $("<div>").attr("class", "searchedDiv").attr("data-id", data[i].id);
+        var p = $("<p>").attr("class", "searchedGames").text(data[i].name + " Platform: " + data[i].platform).attr("data-id", data[i].id).attr("data-platform", data[i].platform)
         b = $("<button>").attr("class", "btn btn-primary addGame").text("add").attr("data-id", data[i].id)
-        $("#gamesSearched").append(p,b)
+        div.append(p,b)
+        $("#gamesSearched").append(div)
 
       }
 
@@ -58,9 +61,37 @@ $(document).ready(function () {
       data: dataObject
     }).then(function (res) {
       console.log(res);
+      // $('#gamesSearched').empty();
       // location.reload();
     })
 
+
+      $(".searchedDiv[data-id='"+thisId+"']").empty()
   });
+
+  $("#searchGameTradeBtn").on("click", function (event) {
+    event.preventDefault();
+    $("#gamesSearchedTrade").empty();
+    var dataObject = {
+      game: $("#searchGameTrade").val()
+    }
+    console.log(dataObject);
+
+    $.ajax({
+      url: "/api/trades",
+      type: "POST",
+      data: dataObject
+      }).then(function (data) {
+
+      console.log(data);
+      for (let i = 0; i < data.length; i++) {
+        var p = $("<p>").attr("class", "searchedGamesTrade").text(data[i].game + " " + data[i].User.name + " " + data[i].User.email).attr("data-id", data[i].id)
+        $("#gamesSearchedTrade").append(p)
+
+      }
+
+    })
+
+  })
 
 });
