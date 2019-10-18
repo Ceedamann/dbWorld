@@ -24,7 +24,7 @@ $(document).ready(function () {
       console.log(data);
       for (let i = 0; i < data.length; i++) {
         var div = $("<div>").attr("class", "searchedDiv").attr("data-id", data[i].id);
-        var p = $("<p>").attr("class", "searchedGames").text(data[i].name).attr("data-id", data[i].id).attr("data-platform", data[i].platform)
+        var p = $("<p>").attr("class", "searchedGames").text(data[i].name + " Platform: " + data[i].platform).attr("data-id", data[i].id).attr("data-platform", data[i].platform)
         b = $("<button>").attr("class", "btn btn-primary addGame").text("add").attr("data-id", data[i].id)
         div.append(p,b)
         $("#gamesSearched").append(div)
