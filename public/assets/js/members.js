@@ -4,7 +4,7 @@ $(document).ready(function () {
   // This file just does a GET request to figure out which user is logged in
   // and updates the HTML on the page
   $.get("/api/user_data").then(function (data) {
-    $(".member-name").text(data.email);
+    $(".member-name").text(data.name);
   });
 
   $("#searchGameBtn").on("click", function (event) {
@@ -62,5 +62,29 @@ $(document).ready(function () {
     })
 
   });
+
+  $("#searchGameTradeBtn").on("click", function (event) {
+    event.preventDefault();
+    var dataObject = {
+      game: $("#searchGameTrade").val()
+    }
+    console.log(dataObject);
+
+    $.ajax({
+      url: "/api/trades",
+      type: "POST",
+      data: dataObject
+      }).then(function (data) {
+
+      console.log(data);
+      for (let i = 0; i < data.length; i++) {
+        var p = $("<p>").attr("class", "searchedGamesTrade").text(data[i].game + " " + data[i].User.name + " " + data[i].User.email).attr("data-id", data[i].id)
+        $("#gamesSearchedTrade").append(p)
+
+      }
+
+    })
+
+  })
 
 });
