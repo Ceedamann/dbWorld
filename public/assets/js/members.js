@@ -71,6 +71,7 @@ $(document).ready(function () {
 
   $("#searchGameTradeBtn").on("click", function (event) {
     event.preventDefault();
+    $("#gamesSearchedTrade").empty();
     var dataObject = {
       game: $("#searchGameTrade").val()
     }
