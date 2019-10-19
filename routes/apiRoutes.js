@@ -48,11 +48,25 @@ module.exports = function (app) {
         email: req.user.email,
         id: req.user.id
       });
+      
     }
   });
 
-  app.post("/api/games", function (req, res) {
+  app.post("/api/owned_games", function (req, res) {
 
+    db.Owned.findAll({
+        where: {
+          userId: req.user.id
+        }
+    }).then(function (data) {
+      return res.json(data);
+    }).catch(function (error) {
+      console.log(error);
+    });
+
+  });
+
+  app.post("/api/games", function (req, res) {
 
     db.Game.findAll({
       limit: 10,
@@ -103,4 +117,6 @@ module.exports = function (app) {
       console.log(error);
     });
   });
+
+
 };

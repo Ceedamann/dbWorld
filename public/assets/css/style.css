@@ -1,29 +1,68 @@
 body {
-    text-align: center;
-    background-image: url("../img/round.png");
-    /* min-height: 100vh; */
-    display: flex;
-    flex-direction: column;
+  background-image: url("../img/round.png");
+  background-position: center;
+  background-attachment: fixed;
 }
-/* .container1 {
-    
- text-align: center;
- display: inline-block;
-} */
 
-#page-container {
-    position: relative;
-    min-height: 100vh;
-  }
-  
-  #content-wrap {
-    padding-bottom: 2.5rem;    /* Footer height */
-  }
-  
-  #footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 2.5rem;            /* Footer height */
-    font-size: 30px;
-  }
+.section1 {
+  min-height: 90vh;
+}
+
+.bodyI {
+  background-image: url(../img/indexbg.webp);
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+.index-cont {
+  margin-top: 240px;
+}
+
+.h1I {
+  margin-bottom: 40px;
+  color: rgb(11, 8, 236);
+}
+
+.h4I {
+  color: rgb(240, 13, 13);
+}
+
+.members-section {
+  min-height: 100vh;
+}
+
+.members-col{
+  min-height: 30vh;
+  background-color: white;
+  border: 1px solid grey;
+}
+
+.welcome {
+  color: rgb(16, 16, 212);
+}
+
+.gamesOwned {
+  color: blue;
+}
+
+.platform {
+  color: green;
+  margin-right: 10px;
+}
+
+footer {
+  background-color: rgb(108, 117, 125);
+  width: 100%;
+  min-height: 40px;
+  color: white;
+  font-size: 22px;
+}
+
+.gamerz {
+  margin-top: 10px;
+  font-size: 18px;
+}
+
+.footer-title {
+  color: rgb(11, 11, 224);
+}
