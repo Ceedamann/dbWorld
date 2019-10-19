@@ -14,7 +14,7 @@ $(document).ready(function () {
       var id = data[i].id;
       var game = data[i].game;
       var platform = data[i].platform;
-      var div = `<div attr="${id}"><p attr="${id}" class="gamesOwned">Game: ${game} <span class="platform">Platform: ${platform}</span></p></div>`;
+      var div = `<div attr="${id}"><p attr="${id}" class="gamesOwned">${game} <span class="platform">Platform: ${platform}</span></p></div>`;
       $("#ownedGames").append(div)
     }
   });
@@ -35,14 +35,10 @@ $(document).ready(function () {
 
       console.log(data);
       for (let i = 0; i < data.length; i++) {
-        // var id = data[i].id;
-        // var name = data[i].name;
-        // var platform = data[i].platform;
-        // var div = `<div attr="${id}" class="searchedDiv"><p attr="${id}" class="gamesOwned searchedGames" data-platform="${platform}">Game: ${name} <span class="platform">Platform: ${platform}</span></p><button class="btn btn-primary btn-sm addGame" data-id="${id}">Add</button></div>`;
-        var div = $("<div>").attr("class", "searchedDiv").attr("data-id", data[i].id);
-        var p = $("<p>").attr("class", "searchedGames gamesOwned").text(data[i].name + " Platform: " + data[i].platform).attr("data-id", data[i].id).attr("data-platform", data[i].platform)
-        b = $("<button>").attr("class", "btn btn-primary addGame").text("add").attr("data-id", data[i].id)
-        div.append(p, b)
+        var id = data[i].id;
+        var name = data[i].name;
+        var platform = data[i].platform;
+        var div = `<div class="searchedDiv" data-id="${id}"><p data-id="${id}" class="gamesOwned"><span class="searchedGames" data-id="${id}">${name}</span> <span class="platform" data-platform="${platform}">Platform: ${platform}</span><button class="btn btn-primary btn-sm addGame" data-id="${id}">Add</button></p></div>`;
         $("#gamesSearched").append(div)
 
       }
@@ -57,7 +53,7 @@ $(document).ready(function () {
 
     var thisId = $(this).data("id")
     var searchedGame = $(".searchedGames[data-id='" + thisId + "']").text()
-    var platform = $(".searchedGames").attr("data-platform")
+    var platform = $(".platform").attr("data-platform")
     var GameId = $(this).attr("data-id")
     console.log(searchedGame);
     console.log(platform);
@@ -99,15 +95,19 @@ $(document).ready(function () {
       data: dataObject
     }).then(function (data) {
 
-      console.log(data);
+      // console.log(data);
       for (let i = 0; i < data.length; i++) {
-        var p = $("<p>").attr("class", "searchedGamesTrade").text(data[i].game + " Platform: " + data[i].platform + " Name: " + data[i].User.name + " Contact: " + data[i].User.email).attr("data-id", data[i].id)
-        $("#gamesSearchedTrade").append(p)
+        var id = data[i].id;
+        var game = data[i].game;
+        var platform = data[i].platform;
+        var name = data[i].User.name;
+        var email = data[i].User.email;
+        var div = `<div><p class="searchedGamesTrade" data-id="${id}"><span class="gamesOwned">${game}</span> <span class="platform">Platform: ${platform}</span> Name: ${name} Contact: <a href="mailto:${email}">Email</a></p></div>`;
+        // var p = $("<p>").attr("class", "searchedGamesTrade").text(data[i].game + " Platform: " + data[i].platform + " Name: " + data[i].User.name + " Contact: " + data[i].User.email).attr("data-id", data[i].id)
+        $("#gamesSearchedTrade").append(div)
 
       }
-
     })
-
   })
 
 
