@@ -17,13 +17,17 @@ body {
   }
   
   #content-wrap {
-    padding-bottom: 2.5rem;    /* Footer height */
+    padding-bottom: 3.5rem;    /* Footer height */
   }
   
   #footer {
-    position: absolute;
+    color: white;
+    position: relative;
+    font-size: 15px;
+    padding: 15px;
+    border: 1px solid gray;
+    margin: 25px;
     bottom: 0;
-    width: 100%;
-    height: 2.5rem;            /* Footer height */
-    font-size: 30px;
+    background-color: rgb(59,64,69);
+    height: 3.5rem; 
   }
