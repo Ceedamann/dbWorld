@@ -5,6 +5,7 @@
   <title>Members Page</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://kit.fontawesome.com/1619b50ca6.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link href="assets/css/style.css" rel="stylesheet">
@@ -52,7 +53,7 @@
                 <input type="text" class="form-control" id="searchGame" placeholder="Call of Duty"
                   aria-label="Call of Duty">
                 <div class="input-group-append">
-                  <button class="btn btn-danger" id="searchGameBtn">Search</button>
+                  <button class="btn btn-primary" id="searchGameBtn">Search</button>
                 </div>
               </div>
             </div>
@@ -60,7 +61,8 @@
           <div class="container mt-4 mb-4" id="gamesSearched"></div>
         </div>
         <div class="col text-center mx-auto members-col">
-          <div class="container text-center mb-4 mt-2">Games you own</div>
+          <div class="container text-center mb-3 mt-2">Games you own <button class="btn btn-white btn-sm refreshBtn"><i
+                class="fas fa-redo-alt refresh"></i></button></div>
           <hr>
           <div id="ownedGames"></div>
         </div>

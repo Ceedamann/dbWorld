@@ -14,10 +14,26 @@ $(document).ready(function () {
       var id = data[i].id;
       var game = data[i].game;
       var platform = data[i].platform;
-      var div = `<div attr="${id}"><p attr="${id}" class="gamesOwned">${game} <span class="platform">Platform: ${platform}</span></p></div>`;
+      var div = `<div attr="${id}"><p attr="${id}" class="gamesOwned">${game} <span class="platform">Platform: ${platform}</span><button class="btn btn-white btn-sm deleteGame" data-id="${id}"><i class="fas fa-backspace deleteBtn"></i></button></p></div>`;
       $("#ownedGames").append(div)
     }
   });
+
+  $(document).on("click", ".deleteGame", function (e) {
+    e.preventDefault();
+    var thisId = $(this).data("id")
+    $.ajax({
+      method: "DELETE",
+      url: "/api/owneds_delete/" + thisId
+    }).then(function () {
+      location.reload();
+    })
+  })
+
+  $(".refreshBtn").on("click", function (e) {
+    e.preventDefault();
+    location.reload();
+  })
 
   $("#searchGameBtn").on("click", function (event) {
     event.preventDefault();
@@ -38,7 +54,7 @@ $(document).ready(function () {
         var id = data[i].id;
         var name = data[i].name;
         var platform = data[i].platform;
-        var div = `<div class="searchedDiv" data-id="${id}"><p data-id="${id}" class="gamesOwned"><span class="searchedGames" data-id="${id}">${name}</span> <span class="platform" data-platform="${platform}">Platform: ${platform}</span><button class="btn btn-primary btn-sm addGame" data-id="${id}">Add</button></p></div>`;
+        var div = `<div class="searchedDiv" data-id="${id}"><p data-id="${id}" class="gamesOwned"><span class="searchedGames" data-id="${id}">${name}</span> <span class="platform" data-platform="${platform}">Platform: ${platform}</span><button class="btn btn-white btn-sm addGame" data-id="${id}"><i class="fas fa-plus-square addBtn"></i></button></p></div>`;
         $("#gamesSearched").append(div)
 
       }

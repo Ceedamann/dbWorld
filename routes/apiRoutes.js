@@ -118,5 +118,16 @@ module.exports = function (app) {
     });
   });
 
+  app.delete("/api/owneds_delete/:id", function(req, res) {
+    // Delete the Author with the id available to us in req.params.id
+    db.Owned.destroy({
+      where: {
+        id: req.params.id
+      }
+    }).then(function(data) {
+      res.json(data);
+    });
+  });
+
 
 };
