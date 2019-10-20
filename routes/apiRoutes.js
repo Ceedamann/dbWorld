@@ -3,6 +3,9 @@ var db = require("../models");
 var passport = require("../config/passport");
 var Sequelize = require("sequelize");
 var Op = Sequelize.Op;
+require("dotenv").config();
+var axios = require("axios");
+
 
 module.exports = function (app) {
   // Using the passport.authenticate middleware with our local strategy.
@@ -51,6 +54,45 @@ module.exports = function (app) {
       
     }
   });
+  
+  app.post("/api/game/:cover", function (req, res){
+    var input = req.params.cover
+    axios({
+      url: "https://api-v3.igdb.com/search",
+      method: 'POST',
+      headers: {
+          'Accept': 'application/json',
+          'user-key': process.env.API_KEY
+      },
+      data: `'fields *; search \"${input}\"; limit 2;'`
+    })
+      .then(response => {
+          // console.log(response.data);
+          var id = response.data[1].game;
+          axios({
+            url: "https://api-v3.igdb.com/covers",
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'user-key': process.env.API_KEY
+            },
+            data: `'fields alpha_channel,animated,game,height,image_id,url,width; where game = ${id};'`
+          })
+            .then(response => {
+                // console.log(response.data[0].url);
+                var resu = response.data;
+                return res.json({ resu });
+            })
+            .catch(err => {
+                console.error(err);
+            });
+      })
+      .catch(err => {
+          console.error(err);
+      });
+    
+      
+  })
 
   app.post("/api/owned_games", function (req, res) {
 
@@ -115,6 +157,17 @@ module.exports = function (app) {
       return res.json(data);
     }).catch(function (error) {
       console.log(error);
+    });
+  });
+
+  app.delete("/api/owneds_delete/:id", function(req, res) {
+    // Delete the Author with the id available to us in req.params.id
+    db.Owned.destroy({
+      where: {
+        id: req.params.id
+      }
+    }).then(function(data) {
+      res.json(data);
     });
   });
 

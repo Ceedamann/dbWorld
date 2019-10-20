@@ -45,6 +45,25 @@ body {
   color: blue;
 }
 
+.refresh {
+  color: blue;
+  background-color: white;
+}
+
+.refreshBtn {
+  margin-left: 50px;
+}
+
+.deleteBtn {
+  color: red;
+  background-color: white;
+}
+
+.addBtn {
+  color: green;
+  background-color: white;
+}
+
 .platform {
   color: green;
   margin-right: 10px;
