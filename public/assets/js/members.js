@@ -15,9 +15,12 @@ $(document).ready(function () {
       var id = data[i].id;
       var game = data[i].game;
       var platform = data[i].platform;
-      var data3 = axiosCall(game);
-      var div = `<div attr="${id}"><img src="https:${data3}" class="gameImg"><p attr="${id}" class="gamesOwned">${game} <span class="platform">Platform: ${platform}</span><button class="btn btn-white btn-sm deleteGame" data-id="${id}"><i class="fas fa-backspace deleteBtn"></i></button></p></div>`;
-      $("#ownedGames").append(div)
+      axiosCall(function (data3) {
+        console.log(data3 + "========clear");
+        var div = `<div class="col" attr="${id}"><img src="https:${data3}" class="gameImg"><p attr="${id}" class="gamesOwned">${game} <span class="platform">Platform: ${platform}</span><button class="btn btn-white btn-sm deleteGame" data-id="${id}"><i class="fas fa-backspace deleteBtn"></i></button></p></div>`;
+        $("#ownedGames").append(div)
+      }, game)
+
     }
   });
 
@@ -57,9 +60,13 @@ $(document).ready(function () {
         var id = data[i].id;
         var name = data[i].name;
         var platform = data[i].platform;
-        var data3 = axiosCall(name);
-        var div = `<div class="searchedDiv" data-id="${id}"><img src="https:${data3}" class="gameImg"><p data-id="${id}" class="gamesOwned"><span class="searchedGames" data-id="${id}">${name}</span> <span class="platform" data-platform="${platform}">Platform: ${platform}</span><button class="btn btn-white btn-sm addGame" data-id="${id}"><i class="fas fa-plus-square addBtn"></i></button></p></div>`;
-        $("#gamesSearched").append(div)
+        axiosCall(function (data3) {
+          console.log(data3 + "========clear");
+          var div = `<div class="searchedDiv col" data-id="${id}"><img src="https:${data3}" class="gameImg"><p data-id="${id}" class="gamesOwned"><span class="searchedGames" data-id="${id}">${name}</span> <span class="platform" data-platform="${platform}">Platform: ${platform}</span><button class="btn btn-white btn-sm addGame" data-id="${id}"><i class="fas fa-plus-square addBtn"></i></button></p></div>`;
+          $("#gamesSearched").append(div)
+
+        }, name)
+
 
       }
 
@@ -122,23 +129,24 @@ $(document).ready(function () {
         var platform = data[i].platform;
         var name = data[i].User.name;
         var email = data[i].User.email;
-        var data3 = axiosCall(game);
-        console.log(data3 + "=============");
+        axiosCall(function (data3) {
+          console.log(data3 + "========clear");
+          var div = `<div class="col"><img src="https:${data3}" class="gameImg"><p class="searchedGamesTrade" data-id="${id}"><span class="gamesOwned">${game}</span> <span class="platform">Platform: ${platform}</span> Name: ${name} Contact: <a href="mailto:${email}">Email</a></p></div>`;
+          $("#gamesSearchedTrade").append(div)
 
-        var div = `<div><img src="https:${data3}" class="gameImg"><p class="searchedGamesTrade" data-id="${id}"><span class="gamesOwned">${game}</span> <span class="platform">Platform: ${platform}</span> Name: ${name} Contact: <a href="mailto:${email}">Email</a></p></div>`;
-        $("#gamesSearchedTrade").append(div)
-
+        }, game)
       }
     })
   })
 
-  var axiosCall = function (input) {
+  function axiosCall(func, input) {
     $.ajax({
       type: "POST",
       url: "/api/game/" + input
-    }).then(function (data) {
-
-      console.log(data);
+    }).then(function (data2) {
+      var data3 = data2.resu[0].url;
+      func(data3);
+      // console.log(data3);
 
     })
   }

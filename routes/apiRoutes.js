@@ -80,10 +80,8 @@ module.exports = function (app) {
           })
             .then(response => {
                 // console.log(response.data[0].url);
-                var resu = response.data[0].url;
-                return res.json({
-                  url: resu
-                });
+                var resu = response.data;
+                return res.json({ resu });
             })
             .catch(err => {
                 console.error(err);
