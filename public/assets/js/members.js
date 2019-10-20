@@ -1,10 +1,11 @@
-
 $(document).ready(function () {
+
 
   // This file just does a GET request to figure out which user is logged in
   // and updates the HTML on the page
   $.get("/api/user_data").then(function (data) {
     $(".member-name").text(data.name);
+
   });
 
   $.post("/api/owned_games").then(function (data) {
@@ -14,7 +15,8 @@ $(document).ready(function () {
       var id = data[i].id;
       var game = data[i].game;
       var platform = data[i].platform;
-      var div = `<div attr="${id}"><p attr="${id}" class="gamesOwned">${game} <span class="platform">Platform: ${platform}</span><button class="btn btn-white btn-sm deleteGame" data-id="${id}"><i class="fas fa-backspace deleteBtn"></i></button></p></div>`;
+      var data3 = axiosCall(game);
+      var div = `<div attr="${id}"><img src="https:${data3}" class="gameImg"><p attr="${id}" class="gamesOwned">${game} <span class="platform">Platform: ${platform}</span><button class="btn btn-white btn-sm deleteGame" data-id="${id}"><i class="fas fa-backspace deleteBtn"></i></button></p></div>`;
       $("#ownedGames").append(div)
     }
   });
@@ -38,6 +40,7 @@ $(document).ready(function () {
   $("#searchGameBtn").on("click", function (event) {
     event.preventDefault();
     $('#gamesSearched').empty();
+
     var dataObject = {
       name: $("#searchGame").val()
     }
@@ -54,7 +57,8 @@ $(document).ready(function () {
         var id = data[i].id;
         var name = data[i].name;
         var platform = data[i].platform;
-        var div = `<div class="searchedDiv" data-id="${id}"><p data-id="${id}" class="gamesOwned"><span class="searchedGames" data-id="${id}">${name}</span> <span class="platform" data-platform="${platform}">Platform: ${platform}</span><button class="btn btn-white btn-sm addGame" data-id="${id}"><i class="fas fa-plus-square addBtn"></i></button></p></div>`;
+        var data3 = axiosCall(name);
+        var div = `<div class="searchedDiv" data-id="${id}"><img src="https:${data3}" class="gameImg"><p data-id="${id}" class="gamesOwned"><span class="searchedGames" data-id="${id}">${name}</span> <span class="platform" data-platform="${platform}">Platform: ${platform}</span><button class="btn btn-white btn-sm addGame" data-id="${id}"><i class="fas fa-plus-square addBtn"></i></button></p></div>`;
         $("#gamesSearched").append(div)
 
       }
@@ -103,7 +107,7 @@ $(document).ready(function () {
     var dataObject = {
       game: $("#searchGameTrade").val()
     }
-    console.log(dataObject);
+    // console.log(dataObject);
 
     $.ajax({
       url: "/api/trades",
@@ -118,13 +122,29 @@ $(document).ready(function () {
         var platform = data[i].platform;
         var name = data[i].User.name;
         var email = data[i].User.email;
-        var div = `<div><p class="searchedGamesTrade" data-id="${id}"><span class="gamesOwned">${game}</span> <span class="platform">Platform: ${platform}</span> Name: ${name} Contact: <a href="mailto:${email}">Email</a></p></div>`;
-        // var p = $("<p>").attr("class", "searchedGamesTrade").text(data[i].game + " Platform: " + data[i].platform + " Name: " + data[i].User.name + " Contact: " + data[i].User.email).attr("data-id", data[i].id)
+        var data3 = axiosCall(game);
+        console.log(data3 + "=============");
+
+        var div = `<div><img src="https:${data3}" class="gameImg"><p class="searchedGamesTrade" data-id="${id}"><span class="gamesOwned">${game}</span> <span class="platform">Platform: ${platform}</span> Name: ${name} Contact: <a href="mailto:${email}">Email</a></p></div>`;
         $("#gamesSearchedTrade").append(div)
 
       }
     })
   })
+
+  var axiosCall = function (input) {
+    $.ajax({
+      type: "POST",
+      url: "/api/game/" + input
+    }).then(function (data) {
+
+      console.log(data);
+
+    })
+  }
+
+
+
 
 
 });
