@@ -2,9 +2,10 @@
 <html lang="en">
 
 <head>
-    <title>Sign up Page</title>
+    <title>gAmerZ INDEX</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/1619b50ca6.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -12,10 +13,9 @@
 </head>
 
 <body class="bodyI">
-    <section class="section1">
         <div class="containter">
             <!--NAVIGATION BAR-->
-            <nav class="navbar navbar-expand-lg navbar-light bg-secondary">
+            <nav class="navbar navbar-expand-lg navbar-light bg-secondary fixed-top">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01"
                     aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -24,28 +24,55 @@
                     <p class="gamerz">gAmerZ INDEX</p>
                     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                     </ul>
-                    <ul class="nav nav-pills">
-                        <li class="nav-item">
-                            <a class="nav-link" href="/signup">Sign up</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" href="/login">Login</a>
-                        </li>
+                    <ul>
+                        <div class="nav-item dropdown dropdownNav">
+                            <a class="nav-link dropdown-toggle btn btn-primary" href="#" id="navbarDropdown"
+                                role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Login
+                            </a>
+                            <div class="dropdown-menu indexLogin bg-dark" aria-labelledby="navbarDropdown">
+                                <form class="form-inline login ">
+                                    <div class="input-group text-center mx-auto mb-3">
+                                        <label for="exampleInputEmail1"></label>
+                                        <input type="email" class="form-control" id="email-input" placeholder="Email">
+                                    </div>
+                                    <div class="input-group text-center mx-auto mb-3">
+                                        <label for="exampleInputPassword1"></label>
+                                        <input type="password" class="form-control" id="password-input"
+                                            placeholder="Password">
+                                    </div>
+                                    <div class="text-center mx-auto">
+                                        <button type="submit" class="btn btn-success">Login</button>
+                                    </div>
+                                    <div class="dropdown-divider"></div>
+                                    <div class="text-center mx-auto">
+                                        <a class="dropdown-item btn bg-white" href="/signup">Signup</a>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
                     </ul>
                 </div>
             </nav>
         </div>
-        <div class="container text-center mx-auto index-cont">
-            <h1 class="h1I">Welcome to gAmerZ Index!</h2>
-                <h4 class="h4I">Here you will be able to share or trade your video games!</h4>
-                <h4 class="h4I">On your members page you will be able to select which games you currently own and are
-                    willing to trade or share for other gamerz games.</h4>
-                <h4 class="h4I">You will also be able to search for a game you would like to borrow or trade for!</h4>
-                <h4 class="h4I">Please login or sign up at the top to get to your members page!</h4>
+        <section class="sectionIndex">
+        <section class="index-cont"></section>
+        <div class="container text-center index-cont2">
+            <h1 class="h1I pt-4">Welcome to <span class="gtitle">gAmerZ Index!</span></h1>
+            <h4 class="h4I">Here you will be able to share or trade your video games!</h4>
+            <hr>
+            <h4 class="h4I">On your members page you will be able to select which games you currently own and
+                are
+                willing to trade or share for other gamerz games.</h4>
+            <hr>
+            <h4 class="h4I">You will also be able to search for a game you would like to borrow or trade for!
+            </h4>
+            <hr>
+            <h4 class="h4I">Please login or sign up at the top to get to your members page!</h4>
         </div>
     </section>
     <footer>
-        <div class="container text-center mx-auto mt-5 footer-title">GamerZ Index, LLC Copyright 2019</div>
+        <div class="container text-center mx-auto footer-title">GamerZ Index, LLC Copyright 2019</div>
     </footer>
 
     <!--END OF SIGN UP FORM-->
@@ -62,6 +89,7 @@
         </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript" src="assets/js/signup.js"></script>
+    <script type="text/javascript" src="assets/js/login.js"></script>
 
 
 

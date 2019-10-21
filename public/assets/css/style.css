@@ -1,34 +1,78 @@
-body {
-  background-image: url("../img/round.png");
+.signupBody {
+  background-image: url(../img/signupbg3.jpg);
   background-position: center;
+  background-size: cover;
   background-attachment: fixed;
+}
+
+.membersBody {
+  background-image: url(../img/membersbg.jpg);
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.signupCont {
+  background-color: rgba(255, 255, 255, 0.575);
+  border-radius: .5rem;
 }
 
 .section1 {
   min-height: 90vh;
 }
 
+.dropdownNav {
+  margin-right: 200px;
+}
+
+.sectionIndex {
+  min-height: 100vh;
+}
+
+.indexLogin {
+  width: 365px;
+  height: 200px;
+}
+
+.gtitle {
+  color: rgb(13, 196, 13);
+}
+
 .bodyI {
-  background-image: url(../img/indexbg.webp);
+  background-image: url(../img/indexbg2.jpg);
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
 }
+
 .index-cont {
-  margin-top: 240px;
+  height: 230px;
 }
+
+.index-cont3 {
+  height: 150px;
+}
+
+.index-cont2 {
+  border-radius: .5rem;
+  height: 500px;
+  background-color: rgba(250, 246, 246, 0.623);
+}
+
 
 .h1I {
   margin-bottom: 40px;
   color: rgb(11, 8, 236);
+  font-family: 'Press Start 2P', cursive;
 }
 
 .h4I {
-  color: rgb(240, 13, 13);
+  font-family: 'Press Start 2P', cursive;
+  color: rgb(160, 6, 160);
 }
 
 .members-section {
-  min-height: 100vh;
+  min-height: 140vh;
 }
 
 .gameImg {
@@ -36,14 +80,31 @@ body {
   width: 130px;
 }
 
+.labelm {
+  border-bottom: 1px solid white;
+  margin-bottom: 40px;
+}
+
 .members-col{
   min-height: 30vh;
-  background-color: white;
+  color: white;
+  background-color: rgb(22, 21, 21);
   border: 1px solid grey;
+  border-radius: .5rem;
+}
+
+.member-name{
+  color: rgb(13, 196, 13);
 }
 
 .welcome {
+  font-family: 'Press Start 2P', cursive;
   color: rgb(16, 16, 212);
+  margin-bottom: 40px;
+}
+
+div {
+  font-family: 'Press Start 2P', cursive;
 }
 
 .gamesOwned {
@@ -51,22 +112,22 @@ body {
 }
 
 .refresh {
-  color: blue;
-  background-color: white;
+  color: green;
+  background-color: rgb(22, 21, 21);
 }
 
 .refreshBtn {
-  margin-left: 50px;
+  margin-left: 30px;
 }
 
 .deleteBtn {
   color: red;
-  background-color: white;
+  background-color: rgb(22, 21, 21);
 }
 
 .addBtn {
   color: green;
-  background-color: white;
+  background-color: rgb(22, 21, 21);
 }
 
 .platform {
@@ -83,10 +144,23 @@ footer {
 }
 
 .gamerz {
+  font-family: 'Press Start 2P', cursive;
+  color: rgb(13, 196, 13);
   margin-top: 10px;
+  margin-left: 200px;
   font-size: 18px;
 }
 
 .footer-title {
   color: rgb(11, 11, 224);
+}
+
+@media screen and (max-width: 550px) {
+  .sectionIndex {
+    height: 190vh;
+  }
+  .index-cont2 {
+    height: 135vh;
+  }
+
 }

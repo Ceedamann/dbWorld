@@ -5,15 +5,16 @@
   <title>Members Page</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap" rel="stylesheet">
   <script src="https://kit.fontawesome.com/1619b50ca6.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link href="assets/css/style.css" rel="stylesheet">
 </head>
 
-<body>
+<body class="membersBody">
   <!--NAVIGATION BAR-->
-  <nav class="navbar navbar-expand-lg navbar-light bg-secondary">
+  <nav class="navbar navbar-expand-lg navbar-light bg-secondary fixed-top">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01"
       aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -22,7 +23,7 @@
       <p class="gamerz">gAmerZ INDEX</p>
       <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
       </ul>
-      <ul class="nav nav-pills">
+      <ul class="nav nav-pills dropdownNav">
         <li class="nav-item">
           <a class="nav-link active" href="/logout">Logout</a>
         </li>
@@ -30,10 +31,9 @@
     </div>
   </nav>
   <!--END NAVIGATION BAR-->
-  <br>
-  <br>
   <!--HEADER IMAGE -->
   <section class="members-section">
+    <section class="index-cont3"></section>
     <!--SEARCH FOR GAMES SECTION-->
     <div class="container text-center mx-auto">
       <div class="row">
@@ -47,8 +47,9 @@
         <div class="col text-center mx-auto members-col">
           <form>
             <div class="form-group">
-              <label for="searchGame" class="mt-2">Add games that you own!</label>
-              <hr>
+              <div class="labelm">
+                <label for="searchGame" class="mt-2">Add games that you own!</label>
+              </div>
               <div class="input-group mb-3">
                 <input type="text" class="form-control" id="searchGame" placeholder="Call of Duty"
                   aria-label="Call of Duty">
@@ -60,14 +61,12 @@
           </form>
           <div class="container mt-4 mb-4">
             <div class="row" id="gamesSearched">
-
             </div>
           </div>
         </div>
         <div class="col text-center mx-auto members-col">
-          <div class="container text-center mb-3 mt-2">Games you own <button class="btn btn-white btn-sm refreshBtn"><i
-                class="fas fa-redo-alt refresh"></i></button></div>
-          <hr>
+          <div class="container text-center mb-3 mt-2 labelm">Games you own <button
+              class="btn btn-sm refreshBtn"><i class="fas fa-redo-alt refresh"></i></button></div>
           <div class="row" id="ownedGames">
 
           </div>
@@ -79,10 +78,11 @@
         <div class="col text-center mx-auto members-col">
           <form>
             <div class="form-group">
-              <label for="searchGameTrade" class="mt-2">Search for Games to Trade for</label>
-              <hr>
+              <div class="labelm">
+                <label for="searchGameTrade" class="mt-2">Search for Games to Trade for</label>
+              </div>
               <div class="input-group mb-3">
-                <input type="text" class="form-control" id="searchGameTrade" placeholder="Call of Duty"
+                <input type="text" class="form-control" id="searchGameTrade" placeholder="Super Mario Bros."
                   aria-label="Call of Duty">
                 <div class="input-group-append">
                   <button class="btn btn-primary" id="searchGameTradeBtn">Search</button>
