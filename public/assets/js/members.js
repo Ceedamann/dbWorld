@@ -10,18 +10,20 @@ $(document).ready(function () {
 
   $.post("/api/owned_games").then(function (data) {
     console.log(data);
-
     for (let i = 0; i < data.length; i++) {
-      var id = data[i].id;
+
       var game = data[i].game;
-      var platform = data[i].platform;
+
       axiosCall(function (data3) {
+        var id = data[i].id;
+        var game = data[i].game;
+        var platform = data[i].platform;
         console.log(data3 + "========clear");
         var div = `<div class="col" attr="${id}"><img src="https:${data3}" class="gameImg"><p attr="${id}" class="gamesOwned">${game} <span class="platform">Platform: ${platform}</span><button class="btn btn-white btn-sm deleteGame" data-id="${id}"><i class="fas fa-backspace deleteBtn"></i></button></p></div>`;
         $("#ownedGames").append(div)
       }, game)
-
     }
+
   });
 
   $(document).on("click", ".deleteGame", function (e) {
@@ -57,17 +59,17 @@ $(document).ready(function () {
 
       console.log(data);
       for (let i = 0; i < data.length; i++) {
-        var id = data[i].id;
+
         var name = data[i].name;
-        var platform = data[i].platform;
+
         axiosCall(function (data3) {
+          var id = data[i].id;
+          var name = data[i].name;
+          var platform = data[i].platform;
           console.log(data3 + "========clear");
           var div = `<div class="searchedDiv col" data-id="${id}"><img src="https:${data3}" class="gameImg"><p data-id="${id}" class="gamesOwned"><span class="searchedGames" data-id="${id}">${name}</span> <span class="platform" data-platform="${platform}">Platform: ${platform}</span><button class="btn btn-white btn-sm addGame" data-id="${id}"><i class="fas fa-plus-square addBtn"></i></button></p></div>`;
           $("#gamesSearched").append(div)
-
         }, name)
-
-
       }
 
     })
@@ -124,16 +126,18 @@ $(document).ready(function () {
 
       // console.log(data);
       for (let i = 0; i < data.length; i++) {
-        var id = data[i].id;
+
         var game = data[i].game;
-        var platform = data[i].platform;
-        var name = data[i].User.name;
-        var email = data[i].User.email;
+
         axiosCall(function (data3) {
           console.log(data3 + "========clear");
+          var id = data[i].id;
+          var game = data[i].game;
+          var platform = data[i].platform;
+          var name = data[i].User.name;
+          var email = data[i].User.email;
           var div = `<div class="col"><img src="https:${data3}" class="gameImg"><p class="searchedGamesTrade" data-id="${id}"><span class="gamesOwned">${game}</span> <span class="platform">Platform: ${platform}</span> Name: ${name} Contact: <a href="mailto:${email}">Email</a></p></div>`;
           $("#gamesSearchedTrade").append(div)
-
         }, game)
       }
     })
