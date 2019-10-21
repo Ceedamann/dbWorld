@@ -29,6 +29,10 @@
   min-height: 100vh;
 }
 
+.sectionIndex2 {
+  min-height: 100vh;
+}
+
 .indexLogin {
   width: 365px;
   height: 200px;
@@ -155,9 +159,24 @@ footer {
   color: rgb(11, 11, 224);
 }
 
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 1200px) {
   .sectionIndex {
     height: 190vh;
+  }
+
+  .index-cont2 {
+    height: 80vh;
+  }
+
+}
+
+@media screen and (max-width: 1000px) {
+  .sectionIndex {
+    height: 190vh;
+  }
+
+  .sectionIndex2 {
+    height: 120vh;
   }
   .index-cont2 {
     height: 135vh;
